@@ -15,7 +15,6 @@ export interface Book {
   price: string;
   image: string;
   url?: any;
-  onClick?: any;
   authors?: string;
   ublisher?: string;
   pages?: string;
@@ -23,12 +22,12 @@ export interface Book {
   rating?: string;
   desc?: string;
   pdf?: string;
-  publisher?: string;
-  news_site?: string;
-  summary?: string;
-  published_at?: string;
-  updated_at?: string;
-  featured?: true;
-  launches?: BookLaunch[];
-  events?: BookEvent[];
+  publisher: string;
+  news_site: string;
+  summary: string;
+  published_at: string;
+  updated_at: string;
+  featured: true;
+  launches: BookLaunch[];
+  events: BookEvent[];
 }
