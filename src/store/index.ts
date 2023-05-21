@@ -1,4 +1,4 @@
-import { ThunkMiddleware, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
 import bookReducer from "./book/book.reducer";
 
