@@ -1,0 +1,55 @@
+.arrow_page {
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.book_wrapper {
+  margin-top: 48px;
+}
+.book_item {
+  display: flex;
+  align-items: center;
+  height: 241.18px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.book_pic {
+  display: flex;
+  justify-content: center;
+  width: 256px;
+  height: 192.18px;
+  background-color: #d7e4fd;
+  margin-right: 32px;
+}
+.book_authors {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a8a8a8;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 8px;
+}
+.book_heart_wrapper {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 300px;
+}
+
+.book_heart {
+  cursor: pointer;
+}
+
+.card_price_stars {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.price {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #313037;
+  font-family: "Bebas Neue", sans-serif;
+}

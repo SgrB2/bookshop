@@ -1,0 +1,96 @@
+.arrow_page {
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.book_wrapper {
+  margin-top: 48px;
+}
+.book_item {
+  display: flex;
+  align-items: center;
+  height: 241.18px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.book_pic {
+  display: flex;
+  justify-content: center;
+  width: 256px;
+  height: 192.18px;
+  background-color: #d7e4fd;
+  margin-right: 32px;
+}
+.book_authors {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a8a8a8;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 8px;
+}
+
+.book_cunter {
+  margin-top: 36px;
+}
+
+.book_price_wrapper {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-left: 130px;
+}
+
+.book_price {
+  font-family: "Bebas Neue";
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: #313037;
+}
+.book_del {
+  margin-left: 113px;
+  cursor: pointer;
+}
+
+.book_total_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.book_total_container {
+  margin-top: 48px;
+  width: 256px;
+  height: 228.46px;
+}
+
+.book_total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.total_text {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a8a8a8;
+}
+
+.total_sum {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #313037;
+}
+
+.total_price {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bebas Neue';
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: #313037;
+  margin-bottom: 24px;
+}

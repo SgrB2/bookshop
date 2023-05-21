@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  border-bottom: 1px solid #e7e7e7;
+  margin-top: 72px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.button {
+  font-family: "Roboto Condensed", sans-serif;
+  border-radius: 0px;
+  background-color: transparent;
+  color: #a8a8a8;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.button.active {
+  border-bottom: 2px solid #313037;
+  color: #313037;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+

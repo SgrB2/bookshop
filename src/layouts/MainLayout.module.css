@@ -1,0 +1,22 @@
+.wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 104px;
+  margin-bottom: 72px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.footer {
+  /* display: flex;
+  align-items: center; */
+  height: 95px;
+  box-sizing: border-box;
+  border-top: 1px solid #e7e7e7;
+}
+
+.main {
+  margin: 72px 0;
+}
