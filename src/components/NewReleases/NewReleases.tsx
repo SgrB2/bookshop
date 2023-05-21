@@ -33,7 +33,7 @@ const NewReleases: React.FC = () => {
     <div>
       <Title title="New Releases Books" size="large" />
       <div className={styles.card_wrapper}>
-        <BooksList book={books} />
+        <BooksList books={books} />
       </div>
       <Pagination />
       <SubscribeContainer />
