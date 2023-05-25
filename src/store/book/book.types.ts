@@ -4,8 +4,10 @@ export type Books = Book;
 
 export interface State {
   book: Books | null;
-  books: Books[];
+  newBooks: Books[],
+  books: Books[],
   loading: boolean;
 
-  offset: number;
+  page:number;
+  query: string;
 }

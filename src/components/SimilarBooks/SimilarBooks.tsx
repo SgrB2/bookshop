@@ -2,22 +2,38 @@ import React from "react";
 
 import styles from "./SimilarBooks.module.css";
 import Title from "../Title/Title";
+import { Books } from "../../store/book/book.types";
 
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import BookCard from "../BookCard/BookCard";
 
-const SimilarBooks: React.FC = () => {
+interface BooksListProps {
+  books: Books[];
+  title: string;
+}
+const SimilarBooks: React.FC<BooksListProps> = ({books, title}) => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper_title}>
-        <Title title="Similar Books" size="medium" />
+        <Title title={title} size="medium" />
         <div>
           <FiArrowLeft size={25} />
           <FiArrowRight size={25} />
         </div>
       </div>
-      <div className={styles.wrapper_book}>
-        {/* <BookCard title={""} subtitle={""} isbn13={""} price={""} image={""} url={""} news_site={""} summary={""} published_at={""} updated_at={""} featured={true} launches={[]} events={[]} /> */}
+      <div>
+      <ul className={styles.wrapper_book}>
+        {books.map((book, index) => (
+          <li key={index}>
+            <BookCard
+              title={book.title}
+              subtitle={book.subtitle}
+              price={book.price}
+              image={book.image} 
+              link={`/new-releases-books/${book.isbn13}`}/>
+          </li>
+        ))}
+      </ul>
        
       </div>
     </div>

@@ -1,47 +1,58 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import styles from "./NewReleases.module.css";
-
 import Title from "../Title/Title";
-import Pagination from "../Pagination/Pagination";
 import SubscribeContainer from "../Subscribe/Subscribe";
 import BooksList from "../BooksList/BooksList";
+import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 
 import { useDidUpdate } from "../../hooks/useDidUpdate";
 import { getBookSlice } from "../../store/book/book.selector";
+import { getNewBooks } from "../../store/book/book.actions";
 import { getBooks } from "../../store/book/book.actions";
+
 import { AppDispatch } from "../../store";
+import {
+  increasePage,
+  resetPage,
+  resetBooks,
+} from "../../store/book/book.reducer";
 
 const NewReleases: React.FC = () => {
-  const { books, offset } = useSelector(getBookSlice);
+  const { newBooks, page, query, books } = useSelector(getBookSlice);
   const dispatch = useDispatch<AppDispatch>();
 
+  const handleClick = () => dispatch(increasePage());
+
   useDidUpdate(() => {
-    dispatch(getBooks());
-  }, [dispatch, offset]);
+    if (query) {
+      dispatch(getBooks());
+    } else {
+      dispatch(resetPage());
+    }
+  }, [query, page]);
 
   useEffect(() => {
-    if (books.length !== 0) return;
+    if (!query) {
+      dispatch(resetBooks());
+    }
+    if (newBooks.length === 0) {
+      dispatch(getNewBooks());
+    }
+  }, [query, dispatch]);
 
-    dispatch(getBooks());
-  }, [books, dispatch]);
+  let newBooksList = query ? books : newBooks;
 
-  if (!books.length) return null;
+  if (!newBooks.length) return null;
 
   return (
     <div>
       <Title title="New Releases Books" size="large" />
-      <div className={styles.card_wrapper}>
-        <BooksList books={books} />
-      </div>
-      <Pagination />
+      <BooksList books={newBooksList} />
+      <LoadMoreButton onClick={handleClick} />
       <SubscribeContainer />
     </div>
   );
 };
 
 export default NewReleases;
-
-
-

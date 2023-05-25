@@ -1,5 +1,7 @@
 import React from "react";
 
+import styles from "./BooksList.module.css";
+
 import BookCard from "../BookCard/BookCard";
 import { Books } from "../../store/book/book.types";
 
@@ -10,15 +12,18 @@ interface BooksListProps {
 const BooksList: React.FC<BooksListProps> = ({ books }) => {
   return (
     <div>
-      {books.map((book) => (
-          <BookCard
-          key={book.isbn13}
-          title={book.title}
-          subtitle={book.subtitle}
-          price={book.price}
-          image={book.image}
-          url={book.url} />
-      ))}
+      <ul className={styles.wrapper_book}>
+        {books.map((book, index) => (
+          <li key={index}>
+            <BookCard
+              title={book.title}
+              subtitle={book.subtitle}
+              price={book.price}
+              image={book.image} 
+              link={`/new-releases-books/${book.isbn13}`}/>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

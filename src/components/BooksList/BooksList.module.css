@@ -1,0 +1,6 @@
+.wrapper_book {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin-top: 49px;
+}

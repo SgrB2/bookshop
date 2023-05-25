@@ -1,0 +1,71 @@
+.product_wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+  }
+  
+  .pic_container {
+    display: flex;
+    justify-content: center;
+    width: 544px;
+    height: 472px;
+    background-color: #fee9e2;
+    position: relative;
+  }
+  
+  .heart_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #313037f6;
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
+  
+  .info_container {
+    width: 448px;
+    box-sizing: border-box;
+    border-top: 1px solid #e7e7e7;
+  }
+  
+  .card_price_stars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  .price {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    color: #313037;
+    font-family: "Bebas Neue", sans-serif;
+  }
+  
+  .previewBook {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .previewBook_text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: #313037;
+  }
+  
+  .tabs {
+    color: #313037;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-top: 49px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+  }

@@ -2,7 +2,6 @@ import React from "react";
 
 import styles from "./SearchResultPage.module.css";
 import Title from "../Title/Title";
-import Pagination from "../Pagination/Pagination";
 import BookCard from "../BookCard/BookCard";
 
 const SearchResultPage: React.FC = () => {
@@ -22,7 +21,6 @@ const SearchResultPage: React.FC = () => {
           />
         ))} */}
       </div>
-      <Pagination />
     </div>
   );
 };

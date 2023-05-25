@@ -1,17 +1,19 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { State } from "./book.types";
-import { getBooks, getBook } from "./book.actions";
+import { getNewBooks, getBook, getBooks } from "./book.actions";
 
 const initialState: State = {
   book: null,
   books: [],
+  newBooks: [],
   loading: false,
 
-  offset: 0,
+  page: 1,
+  query: "",
 };
 
-const offsetStep = 12;
+const step = 1;
 
 const book = createSlice({
   name: "book",
@@ -20,8 +22,17 @@ const book = createSlice({
     resetBook: (state) => {
       state.book = null;
     },
-    increaseOffset: (state) => {
-      state.offset += offsetStep;
+    resetBooks: (state) => {
+      state.books = [];
+    },
+    increasePage: (state) => {
+      state.page += step;
+    },
+    setQueryValue: (state, action: PayloadAction<string>) => {
+      state.query = action.payload;
+    },
+    resetPage: (state) => {
+      state.page = initialState.page;
     },
   },
   extraReducers(builder) {
@@ -34,6 +45,10 @@ const book = createSlice({
       state.loading = false;
     });
 
+    builder.addCase(getNewBooks.fulfilled, (state, action) => {
+      state.newBooks = action.payload.books;
+    });
+
     builder.addCase(getBook.pending, (state) => {
       state.loading = true;
     });
@@ -44,6 +59,7 @@ const book = createSlice({
   },
 });
 
-export const { resetBook, increaseOffset } = book.actions;
+export const { resetBook, resetBooks, increasePage, resetPage, setQueryValue } =
+  book.actions;
 
 export default book.reducer;

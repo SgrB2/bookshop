@@ -1,42 +1,43 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Books } from "../../store/book/book.types";
+import { NavLink } from "react-router-dom";
+
 import styles from "./BookCard.module.css";
 
 import StarsContainer from "../StarsContainer/StarsContainer";
 
-const BookCard: React.FC<Books> = ({
+interface BooksProps {
+  image: string;
+  title: string;
+  subtitle: string;
+  price: string;
+  link: string;
+}
+
+const BookCard: React.FC<BooksProps> = ({
   image,
   title,
   subtitle,
   price,
+  link,
 }) => {
   return (
-    <div className={styles.card_info}>
-      <div className={styles.card_pic}>
-        <img src={image} />
+    <NavLink className={styles.link} to={link}>
+      <div className={styles.card_info}>
+        <div className={styles.card_pic}>
+          <img src={image} />
+        </div>
+        <div className={styles.card_text}>
+          <p className={styles.title}>{title}</p>
+          <p className={styles.text}>{subtitle}</p>
+        </div>
+        <div className={styles.card_price_stars}>
+          <span className={styles.price}>{price}</span>
+          <StarsContainer />
+        </div>
       </div>
-      <div className={styles.card_text}>
-        <a className={styles.title}>
-          {title}
-        </a>
-        <p className={styles.text}>{subtitle}</p>
-      </div>
-      <div className={styles.card_price_stars}>
-        <span className={styles.price}>{price}</span>
-        <StarsContainer />
-      </div>
-    </div>
+    </NavLink>
   );
 };
 
 export default BookCard;
-// {
-//   image,
-//   url,
-//   title,
-//   subtitle,
-//   price,
-//   isbn13,
-//   onClick,
-// }
+

@@ -1,15 +1,26 @@
 import { Book } from "../types";
 import { SPACE_API_URL } from "../../consts/conf";
 
-export const getBooks = (
-  offset: number
+export const getNewBooks = (
 ): Promise<{
-  error: string;
   total: string;
-  page: string;
   books: Book[];
 }> => {
-  return fetch(`${SPACE_API_URL}/1.0/new?limit=12&offset=${offset}`).then(
+  return fetch(`${SPACE_API_URL}/1.0/new`).then(
     (res) => res.json()
   );
+
+};
+
+export const getBooks = (
+  page: number,
+  query: string,
+): Promise<{
+  total: string;
+  books: Book[];
+}> => {
+  return fetch(`${SPACE_API_URL}/1.0/search/${query}?page=${page}`).then(
+    (res) => res.json()
+  );
+
 };

@@ -33,9 +33,6 @@
   text-decoration: none;
   cursor: pointer;
 }
-.title:hover {
-  color: #57565e;
-}
 
 .text {
   height: 24px;
@@ -53,4 +50,12 @@
   line-height: 32px;
   color: #313037;
   font-family: "Bebas Neue", sans-serif;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.card_info:hover {
+  box-shadow: -1px 1px 25px -1px rgba(111, 121, 129, 0.171);
 }

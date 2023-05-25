@@ -1,20 +1,30 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useMemo } from "react";
+
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { shuffle } from "lodash";
 
 import styles from "./Favorires.module.css";
 
 import { BsArrowLeft } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
-import { HiOutlinePlusSmall, HiOutlineMinusSmall } from "react-icons/hi2";
 
 import Title from "../Title/Title";
-import Img from "../Images/9781491954249.png";
 import SimilarBooks from "../SimilarBooks/SimilarBooks";
-import StarsContainer from "../StarsContainer/StarsContainer";
+import FavoritesItem from "./FavoritesItem/FavoritesItem";
+
+import { getBookSlice } from "../../store/book/book.selector";
 
 const Favorites: React.FC = () => {
-  const navigate = useNavigate();
+  const { book, newBooks } = useSelector(getBookSlice);
+  const { isbn13 } = useParams();
 
+  const navigate = useNavigate();
+  
+  const similarBooks = useMemo(
+    () => shuffle(newBooks).slice(0, 3),
+    [newBooks, isbn13]
+  );
   return (
     <div>
       <div className={styles.arrow_page} onClick={() => navigate(-1)}>
@@ -24,33 +34,11 @@ const Favorites: React.FC = () => {
       <div className={styles.book_wrapper}>
         <ul>
           <li>
-            <div className={styles.book_item}>
-              <div className={styles.book_pic}>
-                <img src={Img} />
-              </div>
-              <div>
-                <Title
-                  size="small"
-                  title="Robot Operating System (ROS) for Absolute Beginners "
-                />
-                <p className={styles.book_authors}>
-                  by Lentin Joseph, Apress 2018
-                </p>
-                <div className={styles.card_price_stars}>
-                  <span className={styles.price}>$31.38</span>
-                  <StarsContainer />
-                </div>
-              </div>
-              <div className={styles.book_heart_wrapper}>
-                <span className={styles.book_heart}>
-                  <FaHeart color="#FC857F" size={23} />
-                </span>
-              </div>
-            </div>
+           <FavoritesItem/>
           </li>
         </ul>
       </div>
-      <SimilarBooks />
+      <SimilarBooks books={similarBooks} title="Popular Books" />
     </div>
   );
 };
