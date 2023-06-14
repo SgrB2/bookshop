@@ -1,0 +1,64 @@
+.book_item {
+  display: flex;
+  align-items: center;
+  height: 241.18px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.book_pic {
+  display: flex;
+  justify-content: center;
+  width: 256px;
+  height: 192.18px;
+  background-color: #d7e4fd;
+  margin-right: 32px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.book_info {
+  width: 500px;
+}
+.book_authors {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a8a8a8;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 8px;
+}
+
+.book_counter {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+}
+.book_counter_bt {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 5px;
+}
+.book_counter_bt:active {
+  transform: translateY(2px);
+}
+.book_price_wrapper {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-left: 130px;
+}
+
+.book_price {
+  font-family: "Bebas Neue";
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: #313037;
+}
+.book_del {
+  margin-left: 113px;
+  cursor: pointer;
+}

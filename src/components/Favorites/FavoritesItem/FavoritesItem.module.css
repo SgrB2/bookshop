@@ -13,7 +13,11 @@
     background-color: #d7e4fd;
     margin-right: 32px;
   }
+  .link {
+    text-decoration: none;
+  }
   .book_authors {
+    width: 500px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;

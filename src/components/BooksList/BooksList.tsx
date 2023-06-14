@@ -20,7 +20,7 @@ const BooksList: React.FC<BooksListProps> = ({ books }) => {
               subtitle={book.subtitle}
               price={book.price}
               image={book.image} 
-              link={`/new-releases-books/${book.isbn13}`}/>
+              link={`/${book.isbn13}`}/>
           </li>
         ))}
       </ul>

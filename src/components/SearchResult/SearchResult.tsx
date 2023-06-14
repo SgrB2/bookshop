@@ -1,28 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-import styles from "./SearchResultPage.module.css";
+import { Book } from "../../api/types";
+
 import Title from "../Title/Title";
-import BookCard from "../BookCard/BookCard";
+import BooksList from "../BooksList/BooksList";
+import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 
-const SearchResultPage: React.FC = () => {
+interface SearchResultProps {
+  title: string;
+  onClick: () => void;
+  booksSearch: Book[];
+}
+
+const SearchResult: React.FC<SearchResultProps> = (props) => {  
   return (
     <div>
-      <Title title="‘beginners’ Search results" size="large" />
-      <p className={styles.text_result}>Found 196 books</p>
-      <div className={styles.card_wrapper}>
-        {/* {props.books.map((book) => (
-          <BookCard
-            title={""}
-            subtitle={""}
-            isbn13={""}
-            price={""}
-            image={""}
-            url={""}
-          />
-        ))} */}
+      <Title title={`‘${props.title}’  Search results`} size="large" />
+      <div>
+        <BooksList books={props.booksSearch} />
+        <LoadMoreButton onClick={props.onClick} />
       </div>
     </div>
   );
 };
 
-export default SearchResultPage;
+export default SearchResult;

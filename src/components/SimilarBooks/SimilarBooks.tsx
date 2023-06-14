@@ -16,10 +16,6 @@ const SimilarBooks: React.FC<BooksListProps> = ({books, title}) => {
     <div className={styles.container}>
       <div className={styles.wrapper_title}>
         <Title title={title} size="medium" />
-        <div>
-          <FiArrowLeft size={25} />
-          <FiArrowRight size={25} />
-        </div>
       </div>
       <div>
       <ul className={styles.wrapper_book}>
@@ -30,7 +26,7 @@ const SimilarBooks: React.FC<BooksListProps> = ({books, title}) => {
               subtitle={book.subtitle}
               price={book.price}
               image={book.image} 
-              link={`/new-releases-books/${book.isbn13}`}/>
+              link={`/${book.isbn13}`}/>
           </li>
         ))}
       </ul>

@@ -16,10 +16,11 @@ const PublicRoutes = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="*" element={<Navigate to="new-releases-books" />} />
+        <Route path="*" element={<Navigate to="/" />} />
 
-        <Route path="/new-releases-books" element={<Main />} />
-        <Route path="/new-releases-books/:isbn13" element={<ProductPage />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/:isbn13" element={<ProductPage />} />
+        <Route path="/fovorites" element={<FavoritesPage />} />
         <Route path="/fovorites" element={<FavoritesPage />} />
         <Route path="/cart" element={<CartPage />} />
       </>

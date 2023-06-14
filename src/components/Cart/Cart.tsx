@@ -1,54 +1,40 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Cart.module.css";
 
 import { BsArrowLeft } from "react-icons/bs";
-import { RxCross2 } from "react-icons/rx";
-import { HiOutlinePlusSmall, HiOutlineMinusSmall } from "react-icons/hi2";
+import { resetCart } from "./../../store/cart/cart.reducer";
+import { getCartSlice } from "../../store/cart/cart.selector";
 
 import Title from "../Title/Title";
 import Button from "../Button/Button";
-import Img from "../Images/9781491954249.png";
+import CartItem from "./CartItem/CartItem";
 
-const Cart = () => {
-  const navigate = useNavigate();
+const Cart: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const { cart, totalPrice } = useSelector(getCartSlice);
+
+  const handleClickRemove = () => {
+    dispatch(resetCart());
+  };
 
   return (
     <div>
-      <div className={styles.arrow_page} onClick={() => navigate(-1)}>
-        <BsArrowLeft size={40} color="#313037" />
-      </div>
+      <NavLink to={`/`}>
+        <div className={styles.arrow_page}>
+          <BsArrowLeft size={40} color="#313037" />
+        </div>
+      </NavLink>
       <Title title="Your cart" size="large" />
       <div className={styles.book_wrapper}>
         <ul>
-          <li>
-            <div className={styles.book_item}>
-              <div className={styles.book_pic}>
-                <img src={Img} />
-              </div>
-              <div>
-                <Title
-                  size="small"
-                  title="Robot Operating System (ROS) for Absolute Beginners "
-                />
-                <p className={styles.book_authors}>
-                  by Lentin Joseph, Apress 2018
-                </p>
-                <div className={styles.book_cunter}>
-                  <HiOutlineMinusSmall size={25} />
-                  <span>1</span>
-                  <HiOutlinePlusSmall size={25} />
-                </div>
-              </div>
-              <div className={styles.book_price_wrapper}>
-                <span className={styles.book_price}>$31.38</span>
-                <span className={styles.book_del}>
-                  <RxCross2 color="#313037" size={23} />
-                </span>
-              </div>
-            </div>
-          </li>
+          {cart.map((item) => (
+            <CartItem cartItem={item} key={item.isbn13} />
+          ))}
         </ul>
       </div>
       <div className={styles.book_total_wrapper}>
@@ -59,15 +45,19 @@ const Cart = () => {
               <p>VAT</p>
             </div>
             <div className={styles.total_sum}>
-              <p>$ 69.26</p>
-              <p>$ 69.26</p>
+              <p>${+totalPrice.toFixed(2)}</p>
+              <p>$12.50</p>
             </div>
           </div>
           <div className={styles.total_price}>
             <span>TOTAL:</span>
-            <span>$81.76 </span>
+            <span>${+totalPrice.toFixed(2)}</span>
           </div>
-          <Button children="check out" size="medium" />
+          <Button
+            children="check out"
+            size="medium"
+            onClick={handleClickRemove}
+          />
         </div>
       </div>
     </div>

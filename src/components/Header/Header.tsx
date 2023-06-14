@@ -10,7 +10,7 @@ import InputSearch from "../InputSearch/InputSearch";
 const Header: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <NavLink to={`/new-releases-books`}>
+      <NavLink to={`/`}>
         <div>
           <img src={LogoBook} />
         </div>

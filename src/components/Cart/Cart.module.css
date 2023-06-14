@@ -1,55 +1,10 @@
 .arrow_page {
   margin-bottom: 25px;
   cursor: pointer;
+  width: 50px;
 }
 .book_wrapper {
   margin-top: 48px;
-}
-.book_item {
-  display: flex;
-  align-items: center;
-  height: 241.18px;
-  border-bottom: 1px solid #e7e7e7;
-}
-
-.book_pic {
-  display: flex;
-  justify-content: center;
-  width: 256px;
-  height: 192.18px;
-  background-color: #d7e4fd;
-  margin-right: 32px;
-}
-.book_authors {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #a8a8a8;
-  font-family: "Roboto Condensed", sans-serif;
-  margin-top: 8px;
-}
-
-.book_cunter {
-  margin-top: 36px;
-}
-
-.book_price_wrapper {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  margin-left: 130px;
-}
-
-.book_price {
-  font-family: "Bebas Neue";
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 60px;
-  color: #313037;
-}
-.book_del {
-  margin-left: 113px;
-  cursor: pointer;
 }
 
 .book_total_wrapper {

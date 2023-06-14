@@ -1,36 +1,51 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 import styles from "./FavoritesItem.module.css";
 
 import { FaHeart } from "react-icons/fa";
 
-import Img from "../../Images/9781491954249.png";
+import { Book } from "../../../api/types";
 import StarsContainer from "../../StarsContainer/StarsContainer";
 import Title from "../../Title/Title";
 
-const FavoritesItem = () => {
+import { deleteFavoritestItem } from "./../../../store/favorites/favorites.reducer";
+
+interface FavoritesItemProps {
+  favoritesItem: Book | any;
+}
+
+const FavoritesItem: React.FC<FavoritesItemProps> = ({ favoritesItem }) => {
+  const dispatch = useDispatch();
+
+  const handleClickDelete = () => {
+    dispatch(deleteFavoritestItem(favoritesItem.isbn13));
+  };
+
   return (
-    <div className={styles.book_item}>
-      <div className={styles.book_pic}>
-        <img src={Img} />
-      </div>
-      <div>
-        <Title
-          size="small"
-          title="Robot Operating System (ROS) for Absolute Beginners "
-        />
-        <p className={styles.book_authors}>by Lentin Joseph, Apress 2018</p>
-        <div className={styles.card_price_stars}>
-          <span className={styles.price}>$31.38</span>
-          <StarsContainer />
+    <li>
+      <div className={styles.book_item}>
+        <div className={styles.book_pic}>
+          <img src={favoritesItem.image} />
+        </div>
+        <div>
+          <NavLink to={`/${favoritesItem.isbn13}`} className={styles.link}>
+          <Title size="small" title={favoritesItem.title} />
+          <p className={styles.book_authors}>{favoritesItem.authors}</p>
+          </NavLink>
+          <div className={styles.card_price_stars}>
+            <span className={styles.price}>{favoritesItem.price}</span>
+            <StarsContainer />
+          </div>
+        </div>
+        <div className={styles.book_heart_wrapper}>
+          <span className={styles.book_heart} onClick={handleClickDelete}>
+            <FaHeart color="#FC857F" size={23} />
+          </span>
         </div>
       </div>
-      <div className={styles.book_heart_wrapper}>
-        <span className={styles.book_heart}>
-          <FaHeart color="#FC857F" size={23} />
-        </span>
-      </div>
-    </div>
+    </li>
   );
 };
 

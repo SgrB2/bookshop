@@ -59,7 +59,12 @@ const book = createSlice({
   },
 });
 
-export const { resetBook, resetBooks, increasePage, resetPage, setQueryValue } =
-  book.actions;
+export const {
+  resetBook,
+  resetBooks,
+  increasePage,
+  resetPage,
+  setQueryValue,
+} = book.actions;
 
 export default book.reducer;

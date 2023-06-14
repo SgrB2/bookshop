@@ -7,7 +7,7 @@ export interface State {
   newBooks: Books[],
   books: Books[],
   loading: boolean;
-
+  
   page:number;
   query: string;
 }

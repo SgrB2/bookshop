@@ -57,5 +57,7 @@
 }
 
 .card_info:hover {
-  box-shadow: -1px 1px 25px -1px rgba(111, 121, 129, 0.171);
+  /* box-shadow: -1px 1px 25px -1px rgba(111, 121, 129, 0.171); */
+  transform: translateY(3px)
+
 }

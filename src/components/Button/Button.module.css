@@ -27,6 +27,9 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+.large:active {
+  transform: translateY(2px)
+}
 
 .medium {
   width: 256px;

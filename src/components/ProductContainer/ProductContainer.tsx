@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import styles from "./ProductContainer.module.css";
 
@@ -25,8 +25,6 @@ const ProductContainer: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { book, newBooks } = useSelector(getBookSlice);
 
-  // const params = useParams<{ isbn13: string }>();
-
   const similarBooks = useMemo(
     () => shuffle(newBooks).slice(0, 3),
     [newBooks, isbn13]
@@ -44,7 +42,7 @@ const ProductContainer: React.FC = () => {
       dispatch(getNewBooks());
     }
   }, [newBooks, dispatch]);
-console.log(book)
+  
   return (
     <div>
       <div className={styles.arrow_page} onClick={() => navigate(-1)}>
