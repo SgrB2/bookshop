@@ -1,34 +1,27 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
+
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./ProductContainer.module.css";
 
-import { useNavigate } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
-import shuffle from "lodash.shuffle";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 import SocialList from "../SocialList/SocialList";
 import SubscribeContainer from "../Subscribe/Subscribe";
 import SimilarBooks from "../SimilarBooks/SimilarBooks";
 import ProductCard from "./ProductCard/ProductCard";
 
-
 import { AppDispatch } from "../../store";
 import { getBookSlice } from "../../store/book/book.selector";
 import { getBook, getNewBooks } from "../../store/book/book.actions";
 
 const ProductContainer: React.FC = () => {
-  const navigate = useNavigate();
-
   const { isbn13 } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const { book, newBooks } = useSelector(getBookSlice);
 
-  const similarBooks = useMemo(
-    () => shuffle(newBooks).slice(0, 3),
-    [newBooks, isbn13]
-  );
   useEffect(() => {
     if (!isbn13) return () => {};
 
@@ -42,16 +35,18 @@ const ProductContainer: React.FC = () => {
       dispatch(getNewBooks());
     }
   }, [newBooks, dispatch]);
-  
+
   return (
     <div>
-      <div className={styles.arrow_page} onClick={() => navigate(-1)}>
-        <BsArrowLeft size={40} color="#313037" />
-      </div>
+      <NavLink to={"/"}>
+        <div className={styles.arrow_page}>
+          <BsArrowLeft size={40} color="#313037" />
+        </div>
+      </NavLink>
       {book && <ProductCard bookItem={book} />}
       <SocialList />
       <SubscribeContainer />
-      <SimilarBooks books={similarBooks} title="Similar Books" />
+      <SimilarBooks books={newBooks} title="Similar Books" />
     </div>
   );
 };

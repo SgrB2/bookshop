@@ -16,10 +16,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <div className={styles.wrapper}>
-      <button
-        className={cn(styles[size], className)}
-        onClick={onClick}
-      >
+      <button className={cn(styles[size], className)} onClick={onClick}>
         {children}
       </button>
     </div>

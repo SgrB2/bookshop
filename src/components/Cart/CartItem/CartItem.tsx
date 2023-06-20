@@ -8,7 +8,7 @@ import {
   minusItem,
 } from "../../../store/cart/cart.reducer";
 
-import { Book } from "../../../api/types";
+import { Book as IBook } from "../../../api/types";
 import styles from "./CartItem.module.css";
 import Title from "../../Title/Title";
 
@@ -16,15 +16,15 @@ import { HiOutlinePlusSmall, HiOutlineMinusSmall } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
 
 interface CartItemProps {
-  cartItem: Book | any;
+  cartItem: IBook;
 }
 
 const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
   const dispatch = useDispatch();
 
-  const totalPrice = `$${(cartItem.count * cartItem.price.slice(1)).toFixed(
-    2
-  )}`;
+  const totalPrice = `$${(
+    cartItem.count * Number(cartItem.price.slice(1))
+  ).toFixed(2)}`;
 
   const handleClickPlus = () => {
     dispatch(addToCart({ isbn13: cartItem.isbn13 }));
@@ -54,7 +54,7 @@ const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
             >
               <HiOutlineMinusSmall size={27} />
             </button>
-            <span>{cartItem.count}</span>
+            <span className={styles.count}>{cartItem.count}</span>
             <button
               className={styles.book_counter_bt}
               onClick={handleClickPlus}

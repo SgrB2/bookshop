@@ -9,11 +9,11 @@ interface NewReleasesProps {
   booksList: any;
 }
 
-const NewReleases: React.FC<NewReleasesProps>= (props) => {
+const NewReleases: React.FC<NewReleasesProps> = ({title, booksList}) => {
   return (
     <div>
-      <Title title={props.title} size="large" />
-      <BooksList books={props.booksList} />
+      <Title title={title} size="large" />
+      <BooksList books={booksList} />
       <SubscribeContainer />
     </div>
   );

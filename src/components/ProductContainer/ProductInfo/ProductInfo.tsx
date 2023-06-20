@@ -9,8 +9,7 @@ interface ProductInfoProps {
   publisher: string | undefined;
 }
 
-
-const ProductInfo: React.FC<ProductInfoProps> = (props) => {
+const ProductInfo: React.FC<ProductInfoProps> = ({ authors, publisher }) => {
   return (
     <div>
       <div className={styles.product_info}>
@@ -21,8 +20,8 @@ const ProductInfo: React.FC<ProductInfoProps> = (props) => {
           <p>Format</p>
         </div>
         <div className={styles.product_characteristics}>
-          <p>{props.authors}</p>
-          <p>{props.publisher}</p>
+          <p className={styles.product_authors}>{authors}</p>
+          <p>{publisher}</p>
           <p>English</p>
           <p>Paper book / ebook (PDF)</p>
         </div>

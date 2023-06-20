@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Book } from "../../api/types";
 
@@ -12,7 +12,7 @@ interface SearchResultProps {
   booksSearch: Book[];
 }
 
-const SearchResult: React.FC<SearchResultProps> = (props) => {  
+const SearchResult: React.FC<SearchResultProps> = (props) => {
   return (
     <div>
       <Title title={`‘${props.title}’  Search results`} size="large" />

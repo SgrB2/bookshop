@@ -7,5 +7,11 @@
 .icon {
   cursor: pointer;
 }
-
-
+.wrapper_icon {
+  position: relative;
+}
+.icon_dot {
+  position: absolute;
+  left: 1px;
+  bottom: 0px;
+}

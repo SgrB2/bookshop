@@ -1,10 +1,11 @@
 import React from "react";
+
+import styles from "./Tabs.module.css";
+
 import cn from "classnames";
 
 import Button from "../Button/Button";
-
 import { Tab } from "./Tabs";
-import styles from "./Tabs.module.css";
 
 interface TabItemProps {
   tab: Tab;
@@ -17,7 +18,11 @@ const TabItem: React.FC<TabItemProps> = ({ tab, onTabClick, className }) => {
 
   return (
     <li>
-      <Button className={cn(styles.button, className)} onClick={handleClick} size={"small"}>
+      <Button
+        className={cn(styles.button, className)}
+        onClick={handleClick}
+        size={"small"}
+      >
         {tab.label}
       </Button>
     </li>

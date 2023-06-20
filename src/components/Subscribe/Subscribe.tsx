@@ -1,8 +1,8 @@
 import React from "react";
 
 import styles from "./Subscribe.module.css";
+
 import Title from "../Title/Title";
-import { text } from "stream/consumers";
 import Button from "../Button/Button";
 
 const SubscribeContainer: React.FC = () => {
@@ -18,7 +18,7 @@ const SubscribeContainer: React.FC = () => {
       <div>
         <form className={styles.subscribe_form}>
           <input className={styles.subscribe_input} placeholder="Your email" />
-          <Button size="small" children="Subscribe"/>
+          <Button size="small" children="Subscribe" />
         </form>
       </div>
     </div>

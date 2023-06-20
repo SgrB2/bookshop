@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { State } from "./favorites.types";
+import { Book } from "../../api/types";
 
 const initialState: State = {
   favorites: [],
@@ -21,12 +22,18 @@ const favorites = createSlice({
         state.favorites = [...state.favorites, action.payload];
       }
     },
-    deleteFavoritestItem(state, action) {
-        state.favorites = state.favorites.filter((item) => item.isbn13 !== action.payload);
-      },
+    deleteFavoritestItem(state, action: PayloadAction<Book["isbn13"]>) {
+      state.favorites = state.favorites.filter(
+        (item) => item.isbn13 !== action.payload
+      );
+    },
+    addAllBookToFavorites: (state, action) => {
+      state.favorites = action.payload;
+    },
   },
 });
 
-export const { addToFavorites, deleteFavoritestItem } = favorites.actions;
+export const { addToFavorites, deleteFavoritestItem, addAllBookToFavorites } =
+  favorites.actions;
 
 export default favorites.reducer;

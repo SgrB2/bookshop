@@ -1,9 +1,9 @@
 import React from "react";
+
+import styles from "./Tabs.module.css";
 import cn from "classnames";
 
 import TabItem from "./TabsItem";
-
-import styles from "./Tabs.module.css";
 
 export interface Tab {
   label: string;

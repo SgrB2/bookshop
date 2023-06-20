@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { State } from "./cart.types";
+import { Book } from "./../../api/types";
 
 const initialState: State = {
-  totalPrice: "",
   cart: [],
 };
 
@@ -21,13 +21,8 @@ const cart = createSlice({
       if (!findBook) {
         state.cart = [...state.cart, action.payload];
       }
-
-      state.totalPrice = state.cart.reduce((sum, item) => {
-        return item.price.slice(1) * item.count + sum;
-      }, 0);
-      console.log(state.totalPrice);
     },
-    minusItem(state, action) {
+    minusItem(state, action: PayloadAction<Book["isbn13"]>) {
       const findBook = state.cart.find(
         (item) => item.isbn13 === action.payload
       );
@@ -35,24 +30,25 @@ const cart = createSlice({
       if (findBook) {
         findBook.count--;
       }
-      state.totalPrice = state.cart.reduce((sum, item) => {
-        return item.price.slice(1) * item.count + sum;
-      }, 0);
     },
-    deleteCartItem(state, action) {
+    deleteCartItem(state, action: PayloadAction<Book["isbn13"]>) {
       state.cart = state.cart.filter((item) => item.isbn13 !== action.payload);
-
-      state.totalPrice = state.cart.reduce((sum, item) => {
-        return item.price.slice(1) * item.count + sum;
-      }, 0);
     },
     resetCart(state) {
       state.cart = [];
-      state.totalPrice = "";
+    },
+    addAllBookToCart(state, action) {
+      state.cart = action.payload;
     },
   },
 });
 
-export const { addToCart, deleteCartItem, minusItem, resetCart } = cart.actions;
+export const {
+  addToCart,
+  deleteCartItem,
+  minusItem,
+  resetCart,
+  addAllBookToCart,
+} = cart.actions;
 
 export default cart.reducer;

@@ -1,0 +1,50 @@
+.helperText {
+  color: red;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.label {
+  color: #313037;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.input {
+  width: 480px;
+  height: 56px;
+  border: 1px solid #e7e7e7;
+}
+
+.input::placeholder {
+  font-size: 17px;
+  color: #b8b8ba;
+  padding-left: 10px;
+}
+
+.input:focus {
+  outline: 1px solid rgb(179, 177, 177);
+}
+
+.input:disabled {
+  color: #b8b8ba;
+  background-color: #8d8e97;
+}
+
+.inputError {
+  outline: 1px solid rgb(246, 28, 28);
+}
+
+.inputError::placeholder {
+  color: #000;
+}
+
+.inputError:focus {
+  outline: 1px solid rgb(246, 28, 28);
+}

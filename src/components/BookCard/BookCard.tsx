@@ -1,11 +1,12 @@
 import React from "react";
+
 import { NavLink } from "react-router-dom";
 
 import styles from "./BookCard.module.css";
 
 import StarsContainer from "../StarsContainer/StarsContainer";
 
-interface BooksProps {
+interface BookCardProps {
   image: string;
   title: string;
   subtitle: string;
@@ -13,7 +14,7 @@ interface BooksProps {
   link: string;
 }
 
-const BookCard: React.FC<BooksProps> = ({
+const BookCard: React.FC<BookCardProps> = ({
   image,
   title,
   subtitle,

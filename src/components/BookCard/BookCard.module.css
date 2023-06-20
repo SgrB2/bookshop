@@ -2,6 +2,10 @@
   width: 352px;
   height: 454px;
   margin: 0 32px 50px 0;
+  padding: 5px;
+  box-shadow: -1px 0px 7px 1px rgba(111, 121, 129, 0.171);
+  background-color: #fff;
+  background-color: var(--book-bg-color);
 }
 
 .card_pic {
@@ -32,6 +36,7 @@
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  color: var(--text-color-black);
 }
 
 .text {
@@ -42,6 +47,7 @@
   font-size: 16px;
   line-height: 24px;
   margin-top: 8px;
+  color: var(--text-color-grey);
 }
 
 .price {
@@ -50,6 +56,7 @@
   line-height: 32px;
   color: #313037;
   font-family: "Bebas Neue", sans-serif;
+  color: var(--text-color-black)
 }
 
 .link {
@@ -57,7 +64,7 @@
 }
 
 .card_info:hover {
-  /* box-shadow: -1px 1px 25px -1px rgba(111, 121, 129, 0.171); */
-  transform: translateY(3px)
-
+  box-shadow: -1px 1px 25px -1px rgba(111, 121, 129, 0.171);
+  transform: translateY(-4px);
+  transition: 0.2s;
 }

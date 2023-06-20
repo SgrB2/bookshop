@@ -4,12 +4,11 @@ import bookReducer from "./book/book.reducer";
 import cartReducer from "./cart/cart.reducer";
 import favoritesReducer from "./favorites/favorites.reducer";
 
-
 const store = configureStore({
   reducer: {
     books: bookReducer,
-    cartReducer,
-    favoritesReducer,
+    cart: cartReducer,
+    favorites: favoritesReducer,
   },
 });
 

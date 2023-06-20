@@ -15,8 +15,8 @@ const InputSearch: React.FC = () => {
   };
 
   const handelSearchClick = () => {
-    dispach(setQueryValue(searchValue))
-  }
+    dispach(setQueryValue(searchValue));
+  };
 
   return (
     <div className={styles.wrapper}>

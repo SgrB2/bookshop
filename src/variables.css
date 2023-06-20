@@ -1,0 +1,17 @@
+:root {
+  --main-bg-color: #ffffff;
+  --book-bg-color: #ffffff;
+  --text-color-black: #313037;
+  --text-color-grey: #a8a8a8;
+  --purple-color-subscribe: #f4eefd;
+  --button-color: #313037;
+}
+
+body[data-theme="dark"] {
+  --main-bg-color: #313037;
+  --book-bg-color: #3d3c42;
+  --text-color-black: #cac7c7;
+  --text-color-grey: #cac7c7;
+  --purple-color-subscribe: #64547c;
+  --button-color: #626266;
+}

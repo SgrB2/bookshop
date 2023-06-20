@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import styles from "./FavoritesItem.module.css";
@@ -7,13 +7,12 @@ import styles from "./FavoritesItem.module.css";
 import { FaHeart } from "react-icons/fa";
 
 import { Book } from "../../../api/types";
+import { deleteFavoritestItem } from "./../../../store/favorites/favorites.reducer";
 import StarsContainer from "../../StarsContainer/StarsContainer";
 import Title from "../../Title/Title";
 
-import { deleteFavoritestItem } from "./../../../store/favorites/favorites.reducer";
-
 interface FavoritesItemProps {
-  favoritesItem: Book | any;
+  favoritesItem: Book;
 }
 
 const FavoritesItem: React.FC<FavoritesItemProps> = ({ favoritesItem }) => {
@@ -31,8 +30,8 @@ const FavoritesItem: React.FC<FavoritesItemProps> = ({ favoritesItem }) => {
         </div>
         <div>
           <NavLink to={`/${favoritesItem.isbn13}`} className={styles.link}>
-          <Title size="small" title={favoritesItem.title} />
-          <p className={styles.book_authors}>{favoritesItem.authors}</p>
+            <Title size="small" title={favoritesItem.title} />
+            <p className={styles.book_authors}>{favoritesItem.authors}</p>
           </NavLink>
           <div className={styles.card_price_stars}>
             <span className={styles.price}>{favoritesItem.price}</span>

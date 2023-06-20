@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { getNewBooks as getNewBookApi } from "../../api/new/books";
-import { getBooks as getBooksApi } from "../../api/new/books";
-import { getBook as getBookApi } from "../../api/new/book";
+import { getNewBooks as getNewBookApi } from "../../api/book/books";
+import { getBooks as getBooksApi } from "../../api/book/books";
+import { getBook as getBookApi } from "../../api/book/book";
 import { getBookSlice } from "./book.selector";
 import { RootStore } from "./../index";
 import { Books } from "./book.types";

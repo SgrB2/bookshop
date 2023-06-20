@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { useDidUpdate } from "../../hooks/useDidUpdate";
@@ -21,7 +21,6 @@ const BooksContainer = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleClick = () => dispatch(increasePage());
-  
 
   useDidUpdate(() => {
     if (query) {
@@ -43,10 +42,7 @@ const BooksContainer = () => {
   let booksList = query ? (
     <SearchResult title={query} booksSearch={books} onClick={handleClick} />
   ) : (
-    <NewReleases
-      title="New Releases Books"
-      booksList={newBooks}
-    />
+    <NewReleases title="New Releases Books" booksList={newBooks} />
   );
 
   if (!newBooks.length) return null;

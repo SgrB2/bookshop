@@ -34,6 +34,9 @@ const book = createSlice({
     resetPage: (state) => {
       state.page = initialState.page;
     },
+    resetQuery: (state) => {
+      state.query = initialState.query;
+    },
   },
   extraReducers(builder) {
     builder.addCase(getBooks.pending, (state) => {
@@ -64,6 +67,7 @@ export const {
   resetBooks,
   increasePage,
   resetPage,
+  resetQuery,
   setQueryValue,
 } = book.actions;
 

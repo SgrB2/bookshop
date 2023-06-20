@@ -1,18 +1,21 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 import styles from "./SocialList.module.css";
+
 import { FiFacebook, FiTwitter } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
 
 const SocialList: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <a href="https://ru-ru.facebook.com/" target="_blank">
+      <NavLink target="_blank" to={"https://ru-ru.facebook.com/"}>
         <FiFacebook size={25} color="#313037" />
-      </a>
-      <a href="https://twitter.com/?lang=ru" target="_blank">
+      </NavLink>
+      <NavLink target="_blank" to={"https://twitter.com/?lang=ru"}>
         <FiTwitter size={25} color="#313037" />
-      </a>
+      </NavLink>
       <a href="#">
         <BsThreeDots size={25} color="#313037" />
       </a>

@@ -5,6 +5,7 @@
   flex-direction: column;
   height: 288px;
   background-color: #f4eefd;
+  background-color: var(--purple-color-subscribe);
 }
 
 .text_wrapper {

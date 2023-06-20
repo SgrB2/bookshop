@@ -9,6 +9,7 @@
   line-height: 32px;
   color: #a8a8a8;
   font-family: "Roboto Condensed", sans-serif;
+  color: var(--text-color-grey);
 }
 
 .product_characteristics {
@@ -20,8 +21,12 @@
   line-height: 32px;
   font-family: "Roboto Condensed", sans-serif;
   color: #313037;
+  color: var(--text-color-black);
 }
-
+.product_authors {
+  white-space: nowrap;
+  overflow: hidden;
+}
 .detailse {
   display: flex;
   align-items: center;
@@ -37,4 +42,5 @@
   color: #313037;
   font-family: "Roboto Condensed", sans-serif;
   margin-right: 12px;
+  color: var(--text-color-black);
 }

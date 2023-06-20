@@ -1,3 +1,5 @@
+import { Book } from "../../api/types";
+
 export interface State {
-    favorites: any[];
+    favorites: Book[];
   }

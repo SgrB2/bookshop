@@ -8,6 +8,12 @@
   align-items: center;
 }
 
+.slider_bt {
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .wrapper_book {
   display: flex;
   margin-top: 48px;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./ProductCard.module.css";
@@ -6,15 +6,20 @@ import styles from "./ProductCard.module.css";
 import { RiHeartLine } from "react-icons/ri";
 import { Book as IBook } from "../../../api/types";
 
-import { addToCart } from "../../../store/cart/cart.reducer";
-import { addToFavorites } from "../../../store/favorites/favorites.reducer";
+import { addToCart, addAllBookToCart } from "../../../store/cart/cart.reducer";
+import {
+  addToFavorites,
+  addAllBookToFavorites,
+} from "../../../store/favorites/favorites.reducer";
 import { getFavoritesSlice } from "../../../store/favorites/favorites.selector";
+import { getCartSlice } from "../../../store/cart/cart.selector";
 
 import Title from "../../Title/Title";
 import StarsContainer from "../../StarsContainer/StarsContainer";
 import Button from "../../Button/Button";
 import ProductInfo from "./../ProductInfo/ProductInfo";
 import Tabs, { Tab } from "../../Tabs/Tabs";
+import { useDidUpdate } from "../../../hooks/useDidUpdate";
 
 interface ProductCardProps {
   bookItem: IBook;
@@ -38,6 +43,7 @@ const tabs: Tab[] = [
 const ProductCard: React.FC<ProductCardProps> = ({ bookItem }) => {
   const dispatch = useDispatch();
   const { favorites } = useSelector(getFavoritesSlice);
+  const { cart } = useSelector(getCartSlice);
 
   const [activeTab, setActiveTab] = useState<Tab["value"]>(tabs[0].value);
 
@@ -46,9 +52,34 @@ const ProductCard: React.FC<ProductCardProps> = ({ bookItem }) => {
   const handleAddToCart = () => {
     dispatch(addToCart({ ...bookItem, count: 1 }));
   };
+
   const handleAddToFavorites = () => {
     dispatch(addToFavorites(bookItem));
   };
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart") as string);
+    if (cart) {
+      dispatch(addAllBookToCart(cart));
+    }
+  }, []);
+  useDidUpdate(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    const favorites = JSON.parse(
+      localStorage.getItem("favoritesBook") as string
+    );
+    if (favorites) {
+      dispatch(addAllBookToFavorites(favorites));
+    }
+  }, []);
+
+  useDidUpdate(() => {
+    localStorage.setItem("favoritesBook", JSON.stringify(favorites));
+  }, [favorites]);
+
   return (
     <div>
       <Title title={bookItem.title} size="large" />
